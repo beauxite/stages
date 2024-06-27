@@ -123,7 +123,23 @@ velocity.Name = "Spinbot"
 Tab:AddButton({
 	Name = "Spinbot OFF",
 	Callback = function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+		local speed = 25
+
+local Players = game:GetService("Players")
+local plr = Players.LocalPlayer
+
+repeat wait() until plr.Character
+local humRoot = plr.Character:WaitForChild("HumanoidRootPart")
+local humanoid = plr.Character:WaitForChild("Humanoid")
+
+
+humanoid.AutoRotate = false
+
+
+local existingVelocity = humRoot:FindFirstChild("Spinbot")
+if existingVelocity then
+    existingVelocity:Destroy()
+
 	end    
 })
 
